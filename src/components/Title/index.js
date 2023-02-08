@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Text} from 'react-native';
 import styles from './styles';
 
-const Title = (props) => {
-    const [text, setText] = useState('Default Title')
+const Title = ({ text }) => {
+    const [stateText, setStateText] = useState('Default Title')
+
+    useEffect(() => {
+        console.log("Text Updated");
+        setStateText(text);
+    }, []);
 
     const onTextPress = () => {
-        setText("Updated!");
+        console.log("button pressed");
+        setStateText("Updated!");
     }
 
-    const onTextLongPress = () => {
-        setText("Long Press!");
-    }
     return (
-        <Text onPress={onTextPress} onLongPress={onTextLongPress} style={styles.title}>{text}</Text>
+        <Text onPress={onTextPress} style={styles.title}>{stateText}</Text>
     );
 }
 
