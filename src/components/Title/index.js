@@ -1,22 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {Text} from 'react-native';
 import styles from './styles';
 
-const Title = ({ text }) => {
-    const [stateText, setStateText] = useState('Default Title')
-
-    useEffect(() => {
-        console.log("Text Updated");
-        setStateText(text);
-    }, []);
-
-    const onTextPress = () => {
-        console.log("button pressed");
-        setStateText("Updated!");
-    }
+const Title = ({ text, style }) => {
 
     return (
-        <Text onPress={onTextPress} style={styles.title}>{stateText}</Text>
+        <Text style={[styles.title, style]}>{text}</Text>
     );
 }
 

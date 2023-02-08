@@ -7,18 +7,12 @@ import Title from '../../components/Title';
 import styles from './styles';
 
 const Home = () => {
-    const [title, setTitle] = useState('Default Title set in home');
-
-    useEffect(() =>{
-        setTimeout(() => {
-            setTitle('New Text after timeout')
-        }, 5000);
-    });
-
     return(
-        <SafeAreaView style={styles.flex}>
-            <View>
-                <Title text={title}/>
+        <SafeAreaView>
+            <View style={styles.container}>
+                <Title text="Where do" style={{fontWeight: 'normal'}}/>
+                <Title text="you want to go?"/>
+                <Title text="Explore Attractions" style={styles.subTitle}/>
             </View>      
         </SafeAreaView>
     );
