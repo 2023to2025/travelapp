@@ -8,13 +8,14 @@ import Title from '../../components/Title';
 import styles from './styles';
 
 const Home = () => {
+    const [itemSelected, setItemSelected] = useState('All');
     return(
         <SafeAreaView>
             <View style={styles.container}>
                 <Title text="Where do" style={{fontWeight: 'normal'}}/>
                 <Title text="you want to go?"/>
                 <Title text="Explore Attractions" style={styles.subTitle}/>
-                <Categories selectedItem={'All'} categories={['All', 'Popular', 'Historical', 'Most Viewed', 'Trending', 'Random']}/>
+                <Categories onCategoryPress={setItemSelected} selectedItem={itemSelected} categories={['All', 'Popular', 'Historical', 'Most Viewed', 'Trending', 'Random']}/>
             </View>      
         </SafeAreaView>
     );
